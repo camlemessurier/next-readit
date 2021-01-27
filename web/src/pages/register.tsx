@@ -24,10 +24,7 @@ export default function Register() {
 					<div className="mb-2">
 						<input
 							type="email"
-							className={classNames(
-								"w-full px-2 py-2 bg-gray-100 border border-gray-200 rounded-lg",
-								{ "border-red-500": errors.email }
-							)}
+							className="w-full p-3 transition duration-200 border border-gray-300 rounded-lg outline-none bg-gray-50 focus:bg-white hover:bg-white"
 							placeholder="Email"
 						/>
 					</div>
@@ -35,7 +32,7 @@ export default function Register() {
 					<div className="mb-2">
 						<input
 							type="text"
-							className="w-full px-2 py-2 bg-gray-100 border border-gray-200 rounded-lg"
+							className="w-full p-3 border border-gray-300 rounded-lg outline-none bg-gray-50 focus:bg-white hover:bg-white"
 							placeholder="Username"
 						/>
 					</div>
@@ -43,7 +40,7 @@ export default function Register() {
 					<div className="mb-2">
 						<input
 							type="password"
-							className="w-full px-2 py-2 bg-gray-100 border border-gray-200 rounded"
+							className="w-full p-3 border border-gray-300 rounded-lg outline-none bg-gray-50 focus:bg-white hover:bg-white"
 							placeholder="Password"
 						/>
 					</div>
