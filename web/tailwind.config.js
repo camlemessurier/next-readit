@@ -6,6 +6,7 @@ module.exports = {
 		extend: {
 			spacing: {
 				70: "17.5rem",
+				160: "40rem",
 			},
 			colors: {
 				blue: {
