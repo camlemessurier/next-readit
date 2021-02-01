@@ -4,6 +4,8 @@ import NextLink from "next/link";
 import { FormEvent, useState } from "react";
 import InputGroup from "../components/InputGroup";
 import { useRouter } from "next/router";
+import { useAuthDispatch, useAuthState } from "../context/auth";
+import User from "../../../server/src/entity/User";
 
 export default function Register() {
 	const [username, setUsername] = useState("");
@@ -12,14 +14,22 @@ export default function Register() {
 
 	const router = useRouter();
 
+	const dispatch = useAuthDispatch();
+
+	const { authenticated } = useAuthState();
+
+	if (authenticated) router.push("/");
+
 	const submitForm = async (e: FormEvent) => {
 		e.preventDefault();
 
 		try {
-			await axios.post("/auth/login", {
+			const res = await axios.post("/auth/login", {
 				password,
 				username,
 			});
+
+			dispatch("LOGIN", res.data);
 
 			router.push("/");
 		} catch (error) {

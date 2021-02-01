@@ -8,13 +8,21 @@ dotenv.config();
 
 export default async (req: Request, res: Response, next: NextFunction) => {
 	try {
-		const user: User | undefined = res.locals.user;
+		const { token } = req.cookies;
 
-		if (!user) {
-			throw new Error("Not authenticated");
+		if (!token) {
+			console.log("no token");
+			return next();
 		}
 
-		return next();
+		const { username }: any = jwt.verify(token, process.env.JWT_SECRET!);
+
+		console.log("getting user");
+		const user = await User.findOne({ username });
+
+		res.locals.user = user;
+
+		next();
 	} catch (error) {
 		console.log(error);
 		return res.status(401).json(error.message);

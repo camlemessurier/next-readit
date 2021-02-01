@@ -5,6 +5,7 @@ import { FormEvent, useState } from "react";
 import classNames from "classnames";
 import InputGroup from "../components/InputGroup";
 import { useRouter } from "next/router";
+import { useAuthState } from "../context/auth";
 
 export default function Register() {
 	const [email, setEmail] = useState("");
@@ -14,6 +15,10 @@ export default function Register() {
 	const [errors, setErrors] = useState<any>({});
 
 	const router = useRouter();
+
+	const { authenticated } = useAuthState();
+
+	if (authenticated) router.push("/");
 
 	const submitForm = async (e: FormEvent) => {
 		e.preventDefault();
