@@ -77,17 +77,17 @@ const PostCard: React.FC<PostCardProps> = ({
 				<div className="w-full p-2">
 					<div className="flex items-center">
 						<Link href={`/r/${subName}`}>
-							<>
-								<Image
-									className="rounded-full cursor-pointer"
-									src="/no-img.png"
-									width={15}
-									height={15}
-								/>
-								<a className="pl-1 text-xs font-bold cursor-pointer hover:underline">
-									/r/{subName}
-								</a>
-							</>
+							<Image
+								className="rounded-full cursor-pointer"
+								src="/no-img.png"
+								width={15}
+								height={15}
+							/>
+						</Link>
+						<Link href={`/r/${subName}`}>
+							<a className="pl-1 text-xs font-bold cursor-pointer hover:underline">
+								/r/{subName}
+							</a>
 						</Link>
 						<p className="text-xs text-gray-500">
 							<span className="mx-1">•</span>

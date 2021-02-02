@@ -58,7 +58,7 @@ export default class Post extends Entity {
 
 	@Exclude()
 	@OneToMany(() => Vote, (vote) => vote.post)
-	votes: [Vote];
+	votes: Vote[];
 
 	@Expose() get url(): string {
 		return `/r/${this.subName}/${this.identifier}/${this.slug}`;
